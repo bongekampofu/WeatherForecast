@@ -22,7 +22,7 @@ while APP:
     else:
         try:
             #url = f"https://api.weatherapi.com/v1/current.json?key={API}&q={city_name}"  # API call
-            url = f"https://api.weatherapi.com/v1/current.json?key={API}&q={city_name}&aqi={aqi}"  # API call
+            url = f"http://api.weatherapi.com/v1/current.json?key={API}&q={city_name}&aqi={aqi}"  # API call
 
             result = requests.get(url)  # Will call the website and fetch information
 
