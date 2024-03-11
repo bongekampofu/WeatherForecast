@@ -25,6 +25,7 @@ from sqlalchemy.exc import IntegrityError
 import requests
 import json
 from sqlalchemy.ext.hybrid import hybrid_property
+from typing import Union, Type
 
 admin = Admin()
 app = Flask(__name__, static_folder='static')
@@ -78,7 +79,9 @@ class User(db.Model, UserMixin):
     health_assess = db.relationship("Health", back_populates="user", lazy="dynamic")#relationship with health table
 
     @hybrid_property
-    def password(self) -> str | None:
+    #def password(self) -> str | None:
+    def password(self) -> Union[str,None]:
+    #def password(self)    Union[str, None]
         return self.password_hash
 
     # when a new User.password value is set, this function will be called instead
